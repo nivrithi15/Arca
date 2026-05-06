@@ -2,55 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoCloset | Sustainable Digital Wardrobe</title>
-  <!-- Cloudinary Widget SDK -->
-  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-  <!-- Modern CSS Reset -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCloset | Sustainable Digital Wardrobe</title>
+    <!-- Cloudinary Widget SDK -->
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+    <!-- Modern CSS Reset -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>EcoCloset</h1>
-    <p>Digitize your wardrobe. Combat fast fashion waste.</p>
-  </header>
-  <!-- Place this inside the <body>, right after the <header> -->
-<section class="total-impact">
-    <h2>Total Closet Impact</h2>
-    <div class="stat-circle">
-        <strong id="total-co2">0.0</strong> <small>kg</small>
+    <header>
+        <h1>EcoCloset</h1>
+        <p>Digitalize your wardrobe and Combat fast fashion waste.</p>
+    </header>
+
+    <!-- Impact Dashboard -->
+    <section class="total-impact">
+        <h2>Total Closet Impact</h2>
+        <div class="stat-circle">
+            <span id="total-co2">0.0</span> <small>kg</small>
+        </div>
+        <p>CO₂ emissions prevented by shopping your closet.</p>
+    </section>
+
+    <!-- Upload Section -->
+    <div class="controls">
+        <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
     </div>
-    <p>of CO₂ emissions prevented by shopping your own closet.</p>
-</section>
 
-<!-- The button remains here -->
-<div class="controls">
-    <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
-</div>
+    <!-- Info Banner -->
+    <section class="impact-banner">
+        <strong>Sustainability Impact:</strong>
+        Digitizing your closet reduces impulse buys.
+        <br>Each item reused is roughly <strong>25kg of CO2</strong> saved from new production.
+    </section>
 
-  <section class="impact-banner">
-    <strong>Sustainability Impact:</strong>
-    Digitizing your closet reduces impulse buys.
-    <br>Each item reused is roughly <strong>2.5kg of CO2</strong> saved from new production.
-  </section>
+    <!-- Items Grid -->
+    <main class="grid" id="closet-grid">
+        <!-- AI-processed items will appear here -->
+    </main>
 
-<!-- The button remains here -->
-<div class="controls">
-    <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
-</div>
-
-  <div class="controls">
-    <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
-  </div>
-
-  <main class="grid" id="closet-grid">
-    <!-- AI-processed items will appear here -->
-  </main>
-
-  <script src="script.js"></script>
+    <!-- Link to JS must be at the very bottom of the body -->
+    <script src="script.js"></script>
 </body>
 
 </html>
