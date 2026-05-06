@@ -1,59 +1,96 @@
-/* Custom Styles for EcoCloset */
+/* Custom Styles for EcoCloset - UI Fixes */
 body {
-  text-align: center;
-  background-color: #fcfaf7;
-  padding-bottom: 50px;
+    text-align: center;
+    background-color: #f8f9fa; /* Slightly cooler gray for better contrast */
+    color: #333; /* Darker text for readability */
+    padding-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    padding: 2rem 0;
+}
+
+header h1 {
+    color: #2d3436;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #636e72; /* Mid-gray that is still readable */
+    font-weight: 500;
 }
 
 .impact-banner {
-  background: #e6f4ea;
-  color: #1e4620;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 20px auto;
-  border: 1px solid #34a853;
-  max-width: 800px;
+    background: #ffffff;
+    color: #2d3436;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 20px auto;
+    border-left: 8px solid #00b894; /* Green accent bar */
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft shadow for depth */
+}
+
+.impact-banner strong {
+    color: #00b894; /* Highlight the title */
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .controls {
-  margin: 2rem 0;
+    margin: 3rem 0;
+}
+
+/* Button Styling to match your screenshot blue */
+.cloudinary-button {
+    background-color: #007bff !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    transition: background 0.3s ease !important;
+}
+
+.cloudinary-button:hover {
+    background-color: #0056b3 !important;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    margin-top: 30px;
 }
 
 .clothing-card {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e0dcd5;
-  transition: transform 0.2s ease;
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
 }
 
 .clothing-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 
 .clothing-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  background: #f9f9f9;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.clothing-card p {
-  margin: 5px 0;
-  font-size: 0.9rem;
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background: #fdfdfd;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .carbon-stat {
-  color: #2e7d32;
-  font-weight: bold;
+    color: #00b894;
+    font-weight: 700;
+    font-size: 1rem;
 }
