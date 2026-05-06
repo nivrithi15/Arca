@@ -1,125 +1,119 @@
-/* 
-  ECOCLOSET - SAGE GREEN STABLE BUILD
-*/
-
+/* Custom Styles for EcoCloset - UI Fixes */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #9caf88; /* Solid Sage Green */
-    color: #2d3436;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    
-    /* This is the most modern, bulletproof way to center everything */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
+    text-align: center;
+    background-color: #f8f9fa; /* Slightly cooler gray for better contrast */
+    color: #333; /* Darker text for readability */
+    padding-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
-    padding: 60px 20px 20px 20px;
-    width: 100%;
+    padding: 2rem 0;
 }
 
 header h1 {
-    font-size: 3.5rem;
-    color: #ffffff;
-    margin: 0;
+    color: #2d3436;
+    margin-bottom: 0.5rem;
 }
 
 header p {
-    color: #f0f0f0;
-    margin-top: 5px;
+    color: #636e72; /* Mid-gray that is still readable */
+    font-weight: 500;
 }
 
-/* 1. TOTAL IMPACT DASHBOARD - FORCED CENTER */
-.total-impact {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 40px;
-    margin: 30px auto; /* Auto handles horizontal spacing */
-    width: 90%;
-    max-width: 550px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    
-    /* Ensures items inside the card stay centered too */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.total-impact h2 {
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    color: #636e72;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.stat-circle {
-    color: #00b894;
-    font-weight: 800;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-}
-
-#total-co2 {
-    font-size: 6rem;
-    line-height: 1;
-}
-
-.stat-circle small {
-    font-size: 2rem;
-    color: #636e72;
-    margin-left: 10px;
-}
-
-/* 2. BUTTON */
-.controls {
-    margin: 20px 0;
-    width: 100%;
-}
-
-.cloudinary-button {
-    background-color: #1e272e !important;
-    color: white !important;
-    padding: 18px 45px !important;
-    border-radius: 50px !important;
-    font-weight: bold !important;
-    font-size: 1.1rem !important;
-    border: none !important;
-    cursor: pointer;
-    display: inline-block; /* Keeps button from stretching */
-}
-
-/* 3. IMPACT BANNER */
 .impact-banner {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 30px auto;
-    max-width: 700px;
-    width: 85%;
-    text-align: left; /* Text inside remains left-aligned for readability */
-    border-left: 10px solid #00b894;
+    background: #ffffff;
+    color: #2d3436;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 20px auto;
+    border-left: 8px solid #00b894; /* Green accent bar */
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft shadow for depth */
 }
 
-/* 4. GRID */
+.impact-banner strong {
+    color: #00b894; /* Highlight the title */
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.controls {
+    margin: 3rem 0;
+}
+
+/* Button Styling to match your screenshot blue */
+.cloudinary-button {
+    background-color: #007bff !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    transition: background 0.3s ease !important;
+}
+
+.cloudinary-button:hover {
+    background-color: #0056b3 !important;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 50px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    margin-top: 30px;
 }
 
 .clothing-card {
-    background: white;
-    padding: 20px;
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.clothing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.clothing-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background: #fdfdfd;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.carbon-stat {
+    color: #00b894;
+    font-weight: 700;
+    font-size: 1rem;
+}
+/* Styling for the Total Impact Counter */
+/* Add this to style.css */
+.total-impact {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    border: 2px solid #e6f4ea; /* Light green border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.stat-circle {
+    font-size: 3.5rem;
+    color: #00b894; /* The same green as your '2.5kg' text */
+    font-weight: bold;
+    display: block;
+}
+
+.stat-circle small {
+    font-size: 1.5rem;
+    color: #636e72;
 }
