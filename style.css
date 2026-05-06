@@ -95,23 +95,25 @@ header p {
     font-size: 1rem;
 }
 /* Styling for the Total Impact Counter */
+/* Add this to style.css */
 .total-impact {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 15px;
     margin: 20px auto;
-    max-width: 400px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 500px;
+    border: 2px solid #e6f4ea; /* Light green border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .stat-circle {
-    font-size: 3rem;
-    color: #00b894; /* Match the sustainability green */
-    font-weight: 800;
-    margin: 10px 0;
+    font-size: 3.5rem;
+    color: #00b894; /* The same green as your '2.5kg' text */
+    font-weight: bold;
+    display: block;
 }
 
 .stat-circle small {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #636e72;
 }
