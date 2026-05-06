@@ -1,0 +1,59 @@
+/* Custom Styles for EcoCloset */
+body {
+  text-align: center;
+  background-color: #fcfaf7;
+  padding-bottom: 50px;
+}
+
+.impact-banner {
+  background: #e6f4ea;
+  color: #1e4620;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 20px auto;
+  border: 1px solid #34a853;
+  max-width: 800px;
+}
+
+.controls {
+  margin: 2rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.clothing-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0dcd5;
+  transition: transform 0.2s ease;
+}
+
+.clothing-card:hover {
+  transform: translateY(-5px);
+}
+
+.clothing-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.clothing-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.carbon-stat {
+  color: #2e7d32;
+  font-weight: bold;
+}
