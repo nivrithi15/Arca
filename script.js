@@ -74,6 +74,10 @@ function addItemToGrid(info) {
     
     grid.prepend(card);
 }
+// 1. Add this variable at the very top of your script
+let totalCO2Saved = 0;
+
+// 2. Update your addItemToGrid function
 function addItemToGrid(info) {
     const grid = document.getElementById("closet-grid");
     
@@ -86,24 +90,24 @@ function addItemToGrid(info) {
     const card = document.createElement("article");
     card.className = "clothing-card";
     
-    // Calculation: Standard Denim Jeans save ~25kg of CO2
+    // Define the specific savings for jeans/denim
     const co2Saved = 25.0; 
 
     card.innerHTML = `
         <img src="${aiUrl}" alt="Closet Item" loading="lazy">
         <div class="card-info">
             <p class="carbon-stat">🌱 ${co2Saved}kg CO₂ Avoided</p>
-            <p><small>By cataloging this item, you've prevented a duplicate purchase and the carbon cost of new denim production.</small></p>
+            <p><small>Prevented the purchase of a duplicate item.</small></p>
         </div>
     `;
     
     grid.prepend(card);
     
-    // Optional: Call a function to update a total counter on the page
+    // 3. Call the update function here!
     updateTotalImpact(co2Saved);
 }
-let totalCO2Saved = 0;
 
+// 4. Add this function at the bottom of script.js
 function updateTotalImpact(amount) {
     totalCO2Saved += amount;
     const counterDisplay = document.getElementById("total-co2");
