@@ -74,3 +74,31 @@ function addItemToGrid(info) {
     
     grid.prepend(card);
 }
+function addItemToGrid(info) {
+    const grid = document.getElementById("closet-grid");
+    
+    // Cloudinary AI Transformation
+    const aiUrl = info.secure_url.replace(
+        "/upload/", 
+        "/upload/e_background_removal/f_auto,q_auto,c_pad,h_400,w_400/"
+    );
+
+    const card = document.createElement("article");
+    card.className = "clothing-card";
+    
+    // Calculation: Standard Denim Jeans save ~25kg of CO2
+    const co2Saved = 25.0; 
+
+    card.innerHTML = `
+        <img src="${aiUrl}" alt="Closet Item" loading="lazy">
+        <div class="card-info">
+            <p class="carbon-stat">🌱 ${co2Saved}kg CO₂ Avoided</p>
+            <p><small>By cataloging this item, you've prevented a duplicate purchase and the carbon cost of new denim production.</small></p>
+        </div>
+    `;
+    
+    grid.prepend(card);
+    
+    // Optional: Call a function to update a total counter on the page
+    updateTotalImpact(co2Saved);
+}
