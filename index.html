@@ -13,23 +13,34 @@
 </head>
 
 <body>
-<section class="total-impact">
-    <h2>Total Closet Impact</h2>
-    <div class="stat-circle">
-        <span id="total-co2">0</span> kg
-    </div>
-    <p>of $CO_2$ emissions prevented by shopping your own closet.</p>
-</section>
   <header>
     <h1>EcoCloset</h1>
     <p>Digitize your wardrobe. Combat fast fashion waste.</p>
   </header>
+  <!-- Place this inside the <body>, right after the <header> -->
+<section class="total-impact">
+    <h2>Total Closet Impact</h2>
+    <div class="stat-circle">
+        <strong id="total-co2">0.0</strong> <small>kg</small>
+    </div>
+    <p>of CO₂ emissions prevented by shopping your own closet.</p>
+</section>
+
+<!-- The button remains here -->
+<div class="controls">
+    <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
+</div>
 
   <section class="impact-banner">
     <strong>Sustainability Impact:</strong>
     Digitizing your closet reduces impulse buys.
     <br>Each item reused is roughly <strong>2.5kg of CO2</strong> saved from new production.
   </section>
+
+<!-- The button remains here -->
+<div class="controls">
+    <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
+</div>
 
   <div class="controls">
     <button id="upload_widget" class="cloudinary-button">Add New Item to Closet</button>
