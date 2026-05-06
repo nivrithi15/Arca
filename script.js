@@ -102,3 +102,12 @@ function addItemToGrid(info) {
     // Optional: Call a function to update a total counter on the page
     updateTotalImpact(co2Saved);
 }
+let totalCO2Saved = 0;
+
+function updateTotalImpact(amount) {
+    totalCO2Saved += amount;
+    const counterDisplay = document.getElementById("total-co2");
+    if (counterDisplay) {
+        counterDisplay.innerText = totalCO2Saved.toFixed(1);
+    }
+}
