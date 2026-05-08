@@ -1,100 +1,141 @@
-/* 
-  ECOCLOSET - SAGE GREEN RESET (Vercel Fix)
+/* ECOCLOSET - PREMIUM SAGE BUILD
+  Centered, Compact, and Modern
 */
 
-/* 1. FORCE THE BODY TO FILL THE SCREEN */
+:root {
+    --sage-bg: #9caf88;
+    --glass-white: rgba(255, 255, 255, 0.85);
+    --accent-green: #00b894;
+    --dark-text: #2d3436;
+}
+
 html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
-    max-width: 100% !important; /* Overrides water.css max-width */
     min-height: 100vh;
-    background-color: #9caf88 !important; /* Solid Sage Green */
+    background-color: var(--sage-bg) !important;
 }
 
 body {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; 
-    justify-content: flex-start !important;
+    align-items: center !important;
     text-align: center !important;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    color: var(--dark-text);
 }
 
-/* 2. HEADER CENTERING */
+/* 1. COMPACT HEADER */
 header {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-top: 60px;
-    margin: 0 auto !important;
+    padding: 40px 20px 10px 20px;
 }
 
 header h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: #ffffff;
     margin: 0;
+    letter-spacing: -1px;
 }
 
-/* 3. DASHBOARD - FORCED CENTER */
+header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+/* 2. SLIMMED TOTAL IMPACT BOX */
 .total-impact {
-    background: #ffffff !important;
-    padding: 40px !important;
-    border-radius: 40px !important;
-    margin: 30px auto !important; /* Auto forces it to the middle */
-    width: 90% !important;
-    max-width: 550px !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: var(--glass-white) !important;
+    backdrop-filter: blur(12px);
+    padding: 25px 40px !important; /* Reduced vertical padding */
+    border-radius: 24px !important;
+    margin: 20px auto !important; 
+    width: 85% !important;
+    max-width: 420px !important; /* Made the box narrower */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
 }
 
-#total-co2 {
-    font-size: 6rem;
-    color: #00b894;
+.total-impact h2 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #636e72;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.stat-circle {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: var(--accent-green);
     font-weight: 800;
+}
+
+#total-co2 {
+    font-size: 4.5rem; /* Slightly smaller for a cleaner look */
     line-height: 1;
 }
 
 .stat-circle small {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-left: 8px;
     color: #636e72;
 }
 
-/* 4. BUTTON & GRID */
+/* 3. MODERN BUTTON */
 .controls {
-    margin: 20px 0 !important;
-    width: 100% !important;
+    margin: 15px 0 !important;
 }
 
 .cloudinary-button {
-    background-color: #1e272e !important;
+    background: #1e272e !important;
     color: white !important;
-    padding: 18px 45px !important;
-    border-radius: 50px !important;
+    padding: 14px 35px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
     border: none !important;
     cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
+.cloudinary-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 4. REFINED GRID & CARDS */
 .grid {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 30px;
-    padding: 50px;
-    width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    gap: 20px;
+    padding: 30px;
+    max-width: 1100px !important;
 }
 
 .clothing-card {
-    background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(12px); /* This creates the glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    background: white !important;
+    padding: 15px !important;
+    border-radius: 20px !important;
+    width: 240px !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
 .clothing-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.clothing-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Looks more high-end than 'contain' */
+    border-radius: 14px;
 }
