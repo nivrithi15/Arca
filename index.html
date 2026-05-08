@@ -32,7 +32,16 @@
         </select>
         <button id="upload_widget" class="cloudinary-button">Add Item</button>
     </div>
-
+    <div id="item-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Preview">
+        <div class="modal-details">
+            <h3 id="modal-label">Type</h3>
+            <button id="delete-btn" class="delete-btn">Delete Item</button>
+        </div>
+    </div>
+</div>
     <div id="wardrobe-grid" class="grid">
         </div>
 </main>

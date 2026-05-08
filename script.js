@@ -76,5 +76,27 @@ window.openItem = (index) => {
         loadGallery();
     };
 };
+window.openItem = (index) => {
+    const saved = JSON.parse(localStorage.getItem("arcaItems")) || [];
+    const item = saved[index];
+    const modal = document.getElementById('item-modal');
+    
+    // Set Image and Label
+    document.getElementById('modal-img').src = item.url;
+    document.getElementById('modal-label').innerText = item.category.toUpperCase();
+    
+    // Show Modal
+    modal.style.display = "block";
 
+    // LINK THE DELETE BUTTON
+    const delBtn = document.getElementById('delete-btn');
+    delBtn.onclick = () => {
+        if(confirm("Are you sure you want to remove this item?")) {
+            saved.splice(index, 1);
+            localStorage.setItem("arcaItems", JSON.stringify(saved));
+            modal.style.display = "none";
+            loadGallery(); // This refreshes the grid
+        }
+    };
+};
 window.closeModal = () => document.getElementById('item-modal').style.display = "none";
