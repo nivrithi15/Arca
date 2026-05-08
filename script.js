@@ -1,112 +1,80 @@
 // --- 1. CONFIGURATION ---
 const CLOUD_NAME = "dmvuzwlxs"; 
 const UPLOAD_PRESET = "ecocloset"; 
-
-let currentSelectedItemIndex = null;
-
-// --- 2. IMPACT & RENDER LOGIC ---
+// --- CORE LOGIC ---
 const updateImpact = (count) => {
-    const totalDisplay = document.getElementById('total-co2');
-    if (totalDisplay) {
-        totalDisplay.innerText = (count * 2.5).toFixed(1);
-    }
+    document.getElementById('total-co2').innerText = (count * 2.5).toFixed(1);
 };
 
 const renderCard = (item, index) => {
     const grid = document.getElementById('wardrobe-grid');
-    if (!grid) {
-        console.error("Grid element not found! Check your HTML for id='wardrobe-grid'");
-        return;
-    }
+    // Basic image processing
+    const imgUrl = item.url.replace("/upload/", "/upload/e_background_removal/");
 
-    // Apply AI background removal transformation
-    const processedUrl = item.url.replace("/upload/", "/upload/e_background_removal/");
-
-    const card = `
-        <div class="clothing-card" onclick="openItem(${index})" data-category="${item.category}">
-            <img src="${processedUrl}" alt="${item.category}">
+    const cardHTML = `
+        <div class="clothing-card" onclick="openItem(${index})">
+            <img src="${imgUrl}" onerror="this.src='${item.url}'"> 
             <div class="card-info">
                 <p class="carbon-stat">Saved 2.5kg CO₂</p>
-                <small>${item.category.toUpperCase()}</small>
+                <small class="label-tag">${item.category.toUpperCase()}</small>
             </div>
         </div>
     `;
-    grid.innerHTML += card; // Simplified injection
+    grid.innerHTML += cardHTML;
 };
 
-// --- 3. MODAL FUNCTIONS ---
-window.openItem = (index) => {
-    const saved = JSON.parse(localStorage.getItem("arcaWardrobe")) || [];
-    const item = saved[index];
-    currentSelectedItemIndex = index;
-
-    const modalImg = document.getElementById('modal-img');
-    const modalLabel = document.getElementById('modal-label');
-    const modal = document.getElementById('item-modal');
-
-    if (modalImg && modalLabel && modal) {
-        modalImg.src = item.url.replace("/upload/", "/upload/e_background_removal/");
-        modalLabel.innerText = `Type: ${item.category.toUpperCase()}`;
-        modal.style.display = "block";
-    }
-};
-
-window.closeModal = () => {
-    const modal = document.getElementById('item-modal');
-    if (modal) modal.style.display = "none";
-};
-
-// --- 4. DELETE FUNCTION ---
-const deleteBtn = document.getElementById('delete-btn');
-if (deleteBtn) {
-    deleteBtn.addEventListener('click', () => {
-        let saved = JSON.parse(localStorage.getItem("arcaWardrobe")) || [];
-        saved.splice(currentSelectedItemIndex, 1);
-        localStorage.setItem("arcaWardrobe", JSON.stringify(saved));
-        closeModal();
-        loadGallery(); 
-    });
-}
-
-// --- 5. INITIALIZE GALLERY ---
 const loadGallery = () => {
-    console.log("Attempting to load gallery...");
     const grid = document.getElementById('wardrobe-grid');
-    if (grid) {
-        grid.innerHTML = ''; // Clear current grid
-        const saved = JSON.parse(localStorage.getItem("arcaWardrobe")) || [];
-        console.log("Found " + saved.length + " items in storage.");
-        saved.forEach((item, index) => renderCard(item, index));
-        updateImpact(saved.length);
-    }
+    grid.innerHTML = ""; // Reset grid
+    const saved = JSON.parse(localStorage.getItem("arcaItems")) || [];
+    saved.forEach((item, index) => renderCard(item, index));
+    updateImpact(saved.length);
 };
 
-// --- 6. CLOUDINARY WIDGET SETUP ---
+// --- WIDGET & MODAL ---
 window.onload = () => {
-    if (typeof cloudinary !== 'undefined') {
+    const uploadBtn = document.getElementById("upload_widget");
+    const categorySelect = document.getElementById("category-select");
+
+    if (typeof cloudinary !== 'undefined' && uploadBtn) {
         const myWidget = cloudinary.createUploadWidget({
             cloudName: CLOUD_NAME,
             uploadPreset: UPLOAD_PRESET,
-            sources: ['local', 'camera'],
-            cropping: true,
-            multiple: false
+            cropping: true
         }, (error, result) => {
             if (!error && result && result.event === "success") {
-                const category = prompt("Folder? (dresses, casuals, home)") || 'casuals';
-                const newItem = { url: result.info.secure_url, category: category.toLowerCase() };
-                
-                const saved = JSON.parse(localStorage.getItem("arcaWardrobe")) || [];
+                const newItem = { 
+                    url: result.info.secure_url, 
+                    category: categorySelect.value 
+                };
+                const saved = JSON.parse(localStorage.getItem("arcaItems")) || [];
                 saved.push(newItem);
-                localStorage.setItem("arcaWardrobe", JSON.stringify(saved));
-
+                localStorage.setItem("arcaItems", JSON.stringify(saved));
                 loadGallery();
             }
         });
 
-        const uploadBtn = document.getElementById("upload_widget");
-        if (uploadBtn) {
-            uploadBtn.addEventListener("click", () => myWidget.open(), false);
-        }
+        uploadBtn.addEventListener("click", () => myWidget.open());
     }
-    loadGallery(); // Initial load
+    loadGallery();
 };
+
+// Simple Modal Functions
+window.openItem = (index) => {
+    const saved = JSON.parse(localStorage.getItem("arcaItems")) || [];
+    const item = saved[index];
+    const modal = document.getElementById('item-modal');
+    document.getElementById('modal-img').src = item.url;
+    document.getElementById('modal-label').innerText = item.category.toUpperCase();
+    modal.style.display = "block";
+    
+    // Setup delete for THIS specific item
+    document.getElementById('delete-btn').onclick = () => {
+        saved.splice(index, 1);
+        localStorage.setItem("arcaItems", JSON.stringify(saved));
+        modal.style.display = "none";
+        loadGallery();
+    };
+};
+
+window.closeModal = () => document.getElementById('item-modal').style.display = "none";

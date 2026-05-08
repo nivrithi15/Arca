@@ -8,47 +8,34 @@
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 </head>
 <body>
+<header>
+    <h1>Arca</h1>
+    <p>Digitalize your wardrobe. Prevent fashion waste.</p>
+</header>
 
-    <header>
-        <h1>Arca</h1>
-        <p>Digitalize your wardrobe. Prevent fashion waste.</p>
-    </header>
-
-    <main>
-        <div class="total-impact">
-            <h2>Total Closet Impact</h2>
-            <div class="stat-circle">
-                <span id="total-co2">0.0</span>
-                <small>kg</small>
-            </div>
-            <p style="color: #636e72; font-size: 0.85rem; margin-top: 10px;">
-                CO₂ emissions prevented by shopping your closet.
-            </p>
-        </div>
-
-        <div class="controls">
-            <button id="upload_widget" class="cloudinary-button">Add New Item</button>
-        </div>
-        <div class="folder-navigation">
-            <button class="folder-btn active" onclick="filterFolder('all')">All</button>
-            <button class="folder-btn" onclick="filterFolder('dresses')">Dresses</button>
-            <button class="folder-btn" onclick="filterFolder('casuals')">Casuals</button>
-            <button class="folder-btn" onclick="filterFolder('home')">Home Wear</button>
-        </div>
-        <div id="wardrobe-grid" class="grid">
-            </div>
-    </main>
-     <div id="item-modal" class="modal">
-        <div class="modal-content">
-             <span class="close-btn" onclick="closeModal()">&times;</span>
-             <img id="modal-img" src="" alt="Clothing Preview">
-             <div class="modal-details">
-                <h3 id="modal-label">Label</h3>
-                <p id="modal-impact">Impact: 2.5kg CO₂</p>
-                <button id="delete-btn" class="delete-btn">Delete Item</button>
-            </div>
+<main>
+    <div class="total-impact">
+        <h2>Total Closet Impact</h2>
+        <div class="stat-circle">
+            <span id="total-co2">0.0</span>
+            <small>kg</small>
         </div>
     </div>
+
+    <div class="controls">
+        <select id="category-select" class="folder-select">
+            <option value="casuals">Casuals</option>
+            <option value="dresses">Dresses</option>
+            <option value="pants">Pants</option>
+            <option value="tops">Tops</option>
+            <option value="home">Home Wear</option>
+        </select>
+        <button id="upload_widget" class="cloudinary-button">Add Item</button>
+    </div>
+
+    <div id="wardrobe-grid" class="grid">
+        </div>
+</main>
     <script src="script.js"></script>
 </body>
 </html>
