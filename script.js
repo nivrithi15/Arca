@@ -1,6 +1,6 @@
 // --- CONFIGURATION ---
-const cloudName = "YOUR_CLOUD_NAME"; // Replace with your Cloudinary name
-const uploadPreset = "YOUR_PRESET";  // Replace with your unsigned preset
+const cloudName = "dmvuzwlxs"; // Replace with your Cloudinary name
+const uploadPreset = "ecocloset";  // Replace with your unsigned preset
 
 // --- UI ELEMENTS ---
 const grid = document.getElementById('wardrobe-grid');
@@ -20,8 +20,8 @@ function updateImpact() {
 
 // --- CLOUDINARY WIDGET ---
 const myWidget = cloudinary.createUploadWidget({
-    cloudName: "dmvuzwlxs", 
-    uploadPreset:"ecocloset" ,
+    cloudName: cloudName, 
+    uploadPreset: uploadPreset,
     sources: ['local', 'camera'],
     multiple: false,
     cropping: true, // Helps keep card images looking uniform
