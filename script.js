@@ -114,4 +114,22 @@ window.onclick = (event) => {
     if (event.target == itemModal) itemModal.style.display = "none";
     if (event.target == storyModal) storyModal.style.display = "none";
 };
+window.openData = () => {
+    document.getElementById('data-modal').style.display = "block";
+};
+
+window.closeData = () => {
+    document.getElementById('data-modal').style.display = "none";
+};
+
+// Update your existing window.onclick to include the new modal
+window.onclick = (event) => {
+    const itemModal = document.getElementById('item-modal');
+    const storyModal = document.getElementById('story-modal');
+    const dataModal = document.getElementById('data-modal');
+    
+    if (event.target == itemModal) itemModal.style.display = "none";
+    if (event.target == storyModal) storyModal.style.display = "none";
+    if (event.target == dataModal) dataModal.style.display = "none";
+};
 window.closeModal = () => document.getElementById('item-modal').style.display = "none";

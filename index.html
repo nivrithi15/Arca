@@ -13,7 +13,33 @@
     <p>Digitalize your wardrobe. Prevent fashion waste.</p>
 </header>
 <div class="story-controls">
-    <button class="icon-btn" onclick="openStory()">🌳 My Eco Story</button>
+    <button class="icon-btn" onclick="openStory()">My Eco Story</button>
+    <button class="icon-btn warning-btn" onclick="openData()">⚠️ Fashion Waste Facts</button>
+</div>
+
+<!-- Fast Fashion Data Modal -->
+<div id="data-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeData()">&times;</span>
+        <h2 style="color: #e17055;">The Fast Fashion Crisis</h2>
+        <div class="data-grid">
+            <div class="data-item">
+                <h3>92 Million</h3>
+                <p>Tons of textile waste produced globally every year.</p>
+            </div>
+            <div class="data-item">
+                <h3>2,700 Liters</h3>
+                <p>Water required to make just one cotton t-shirt.</p>
+            </div>
+            <div class="data-item">
+                <h3>10%</h3>
+                <p>Global carbon emissions caused by the fashion industry.</p>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #636e72;">
+            Arca helps you break this cycle by shopping your own closet.
+        </p>
+    </div>
 </div>
 
 <div id="story-modal" class="modal">
